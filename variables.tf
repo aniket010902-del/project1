@@ -1,36 +1,8 @@
+variable "private_key_path" {
 
+  type    = string
 
-variable "aws_region" {
-
-  description = "AWS region to deploy resources"
-
-  type        = string
-
-  default     = "eu-west-1"
-
-}
-
-
-
-variable "project_name" {
-
-  description = "Prefix for naming AWS resources"
-
-  type        = string
-
-  default     = "tf-webserver"
-
-}
-
-
-
-variable "instance_type" {
-
-  description = "EC2 instance type"
-
-  type        = string
-
-  default     = "t2.micro"
+  default = "./Neeharika_Terraform.pem"
 
 }
 
@@ -38,19 +10,57 @@ variable "instance_type" {
 
 variable "key_name" {
 
-  description = "Existing EC2 Key Pair name for SSH"
-
   type        = string
+
+  description = "EC2 key pair name (must exist in AWS unless created via aws_key_pair)"
+
+  default     = "Neeharika_Terraform"
 
 }
 
 
 
-variable "my_ip_cidr" {
-
-  description = "Your public IP in CIDR for SSH access, e.g., 1.2.3.4/32"
+variable "region" {
 
   type        = string
+
+  description = "AWS region"
+
+  default     = "eu-west-1"
+
+}
+
+
+
+variable "network_address_space" {
+
+  description = "VPC CIDR"
+
+  default     = "10.1.0.0/16"
+
+}
+
+
+
+variable "instance_count" {
+
+  default = 2
+
+}
+
+
+
+variable "subnet_count" {
+
+  default = 2
+
+}
+
+
+
+variable "instance_username" {
+
+  default = "ec2-user"
 
 }
 
